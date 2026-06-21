@@ -1,0 +1,1784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VP of Media · 90-Day Operating Framework · PX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Roboto+Condensed:wght@700;900&display=swap" rel="stylesheet">
+<style>
+/* =============================================
+   PX BRAND SYSTEM v3
+   Colors from px.com screenshots:
+   - Dark teal header: #0d3535 / #0e3d3d
+   - Bright green accent: #00e676 / #00c853
+   - Magenta/pink CTA: #e040fb / #d946ef
+   - Light blue-grey hero bg: #e8f2f5 / #ddeef5
+   - White cards on light bg
+   - Teal mid: #1a7a6e / #2a8a7a
+   - Chart green: #00e676
+   - Chart teal bar: #0d3535
+   - Chart pink bar: #e040fb
+   Font: Roboto / Roboto Condensed
+   ============================================= */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-font-smoothing: antialiased; scroll-behavior: smooth; }
+
+:root {
+  --px-dark:        #0d3535;
+  --px-dark-mid:    #0e4a4a;
+  --px-teal:        #1a7a6e;
+  --px-teal-bright: #00c9a7;
+  --px-green:       #00e676;
+  --px-green-mid:   #00c853;
+  --px-magenta:     #e040fb;
+  --px-magenta-dim: #f5d0fc;
+  --px-bg-hero:     #ddeef5;
+  --px-bg-page:     #eef5f8;
+  --px-bg-card:     #f7fbfc;
+  --px-white:       #ffffff;
+  --px-text:        #0d1f1f;
+  --px-text-muted:  #4a6868;
+  --px-text-faint:  #8aacac;
+  --px-border:      #c5dde0;
+  --px-divider:     #daeaec;
+  --px-chart-green: #00e676;
+  --px-chart-teal:  #0d3535;
+  --px-chart-pink:  #e040fb;
+  --px-chart-grey:  #b0bec5;
+
+  --font: 'Roboto', system-ui, -apple-system, sans-serif;
+  --font-cond: 'Roboto Condensed', 'Roboto', sans-serif;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --shadow-card: 0 2px 10px rgba(13,53,53,0.08), 0 1px 3px rgba(13,53,53,0.04);
+  --shadow-lift: 0 8px 28px rgba(13,53,53,0.13), 0 2px 6px rgba(13,53,53,0.06);
+}
+
+body {
+  font-family: var(--font);
+  font-size: 13px;
+  color: var(--px-text);
+  background: var(--px-bg-page);
+  line-height: 1.55;
+  position: relative;
+  isolation: isolate;
+}
+body::before {
+  content: '';
+  position: fixed;
+  z-index: -1;
+  inset: 0;
+  background-image: url('px-orbit.webp');
+  background-repeat: no-repeat;
+  background-position: center 140px;
+  background-size: min(1280px, 96vw) auto;
+  opacity: .13;
+  pointer-events: none;
+}
+
+.page {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 32px 24px 48px;
+  position: relative;
+}
+
+/* ---- HEADER ---- */
+.header {
+  background-color: var(--px-dark);
+  background-image:
+    linear-gradient(90deg, rgba(13,53,53,1) 0%, rgba(13,53,53,.96) 48%, rgba(13,53,53,.56) 100%),
+    url('px-orbit.webp');
+  background-repeat: no-repeat;
+  background-position: center, 112% 47%;
+  background-size: cover, 590px auto;
+  border-radius: var(--radius-xl);
+  padding: 32px 38px 28px;
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+}
+/* Bubble dot motif from px.com homepage */
+.header::before {
+  content: '';
+  position: absolute;
+  right: -30px; top: -50px;
+  width: 260px; height: 260px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224,64,251,0.2) 0%, transparent 65%);
+  pointer-events: none;
+}
+.header::after {
+  content: '';
+  position: absolute;
+  right: 100px; top: 40px;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,230,118,0.15) 0%, transparent 65%);
+  pointer-events: none;
+}
+.header-inner {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  gap: 20px;
+  position: relative;
+  z-index: 1;
+}
+.header-logo {
+  margin-bottom: 14px;
+}
+.header-logo img {
+  height: 38px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.92;
+}
+.header-eyebrow {
+  font-family: var(--font);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--px-green);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.header-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 20px; height: 2px;
+  background: var(--px-green);
+}
+.header-title {
+  font-family: var(--font-cond);
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 1.0;
+  color: #ffffff;
+  letter-spacing: -0.5px;
+  margin-bottom: 10px;
+}
+.header-title span { color: var(--px-magenta); }
+.header-sub {
+  font-size: 13.5px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.6);
+  max-width: 500px;
+  line-height: 1.5;
+}
+.header-meta {
+  text-align: right;
+  padding-top: 4px;
+}
+.header-meta-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #ffffff;
+}
+.header-meta-role {
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.5);
+  margin-top: 2px;
+  font-weight: 300;
+}
+.header-badge {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 4px 10px;
+  background: var(--px-magenta);
+  color: #fff;
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+}
+
+/* ---- NORTH STAR ---- */
+.north-star {
+  background: var(--px-bg-hero);
+  border: 1px solid var(--px-border);
+  border-left: 4px solid var(--px-dark);
+  border-radius: var(--radius-lg);
+  padding: 16px 20px;
+  margin-bottom: 18px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 14px;
+  align-items: center;
+}
+.ns-icon {
+  width: 34px; height: 34px;
+  background: var(--px-dark);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 15px;
+  flex-shrink: 0;
+  color: var(--px-green);
+  font-weight: 900;
+  font-family: var(--font-cond);
+}
+.ns-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--px-teal);
+  margin-bottom: 3px;
+}
+.ns-statement {
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--px-dark);
+}
+.ns-statement em {
+  color: var(--px-teal);
+  font-style: normal;
+  font-weight: 900;
+}
+
+/* ---- SECTION LABELS ---- */
+.section-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--px-text-muted);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--px-divider);
+}
+
+/* ---- PHASE GRID ---- */
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 13px;
+  margin-bottom: 18px;
+}
+.phase-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+}
+.phase-header { padding: 15px 17px 13px; }
+.p1 .phase-header { background: #0d3535; }
+.p2 .phase-header { background: #0e4a4a; }
+.p3 .phase-header { background: #1a7a6e; }
+
+.phase-num {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.p1 .phase-num { color: rgba(0,230,118,0.7); }
+.p2 .phase-num { color: rgba(0,230,118,0.7); }
+.p3 .phase-num { color: rgba(255,255,255,0.6); }
+
+.phase-title {
+  font-family: var(--font-cond);
+  font-size: 18px;
+  font-weight: 900;
+  line-height: 1.1;
+  color: #ffffff;
+  margin-bottom: 3px;
+}
+.phase-tagline {
+  font-size: 11px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.5);
+}
+.phase-body {
+  background: var(--px-white);
+  padding: 13px 15px 15px;
+  border: 1px solid var(--px-border);
+  border-top: none;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+}
+.phase-mantra {
+  font-size: 11px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--px-text-muted);
+  margin-bottom: 11px;
+  padding-bottom: 9px;
+  border-bottom: 1px solid var(--px-divider);
+  line-height: 1.45;
+}
+.phase-items {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.phase-item {
+  display: grid;
+  grid-template-columns: 8px 1fr;
+  gap: 7px;
+  align-items: start;
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+.pi-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+.p1 .pi-dot { background: #0d3535; }
+.p2 .pi-dot { background: #0e4a4a; }
+.p3 .pi-dot { background: #1a7a6e; }
+.phase-item strong { font-weight: 700; color: var(--px-text); }
+.deliverable-row {
+  margin-top: 10px;
+  padding-top: 9px;
+  border-top: 1px solid var(--px-divider);
+}
+.del-label {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--px-text-muted);
+  margin-bottom: 4px;
+}
+.del-tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.del-1 { background: rgba(13,53,53,0.1); color: var(--px-dark); }
+.del-2 { background: rgba(14,74,74,0.1); color: var(--px-dark-mid); }
+.del-3 { background: rgba(26,122,110,0.12); color: var(--px-teal); }
+.del-desc {
+  font-size: 10.5px;
+  color: var(--px-text-muted);
+  margin-top: 4px;
+  line-height: 1.4;
+  font-weight: 300;
+}
+
+/* ---- LEAD ENGINE ---- */
+.lead-engine {
+  background: var(--px-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--px-border);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.le-header {
+  background: var(--px-dark);
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.le-header-icon {
+  width: 28px; height: 28px;
+  background: rgba(0,230,118,0.15);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+}
+.le-header-title {
+  font-family: var(--font-cond);
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.le-header-sub {
+  font-size: 10.5px;
+  color: rgba(255,255,255,0.45);
+  margin-top: 1px;
+  font-weight: 300;
+}
+.le-body { padding: 15px 20px 18px; }
+.le-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  margin-bottom: 15px;
+}
+.le-col-label {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--px-teal);
+  margin-bottom: 9px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid var(--px-bg-hero);
+}
+.milestone-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.milestone {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 9px;
+  align-items: start;
+  font-size: 11.5px;
+  line-height: 1.4;
+}
+.m-badge {
+  padding: 2px 7px;
+  border-radius: 20px;
+  font-size: 9px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.m-d30 { background: rgba(13,53,53,0.1); color: var(--px-dark); }
+.m-d60 { background: rgba(14,74,74,0.12); color: var(--px-dark-mid); }
+.m-d90 { background: rgba(26,122,110,0.14); color: var(--px-teal); }
+.m-text { color: var(--px-text); }
+.m-text strong { font-weight: 700; }
+.m-text .target {
+  display: block;
+  margin-top: 2px;
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--px-teal);
+}
+
+/* Quality Pillars */
+.quality-pillars {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 9px;
+  margin-top: 4px;
+}
+.qp-card {
+  background: var(--px-bg-hero);
+  border: 1px solid var(--px-border);
+  border-radius: var(--radius-md);
+  padding: 9px 11px;
+}
+.qp-title {
+  font-size: 9.5px;
+  font-weight: 700;
+  color: var(--px-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+.qp-desc {
+  font-size: 10.5px;
+  color: var(--px-text-muted);
+  line-height: 1.4;
+  font-weight: 300;
+}
+
+/* ---- VERTICAL SECTION ---- */
+.vertical-section {
+  background: var(--px-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--px-border);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.vs-header {
+  background: var(--px-dark-mid);
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.vs-header-icon {
+  width: 28px; height: 28px;
+  background: rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+}
+.vs-header-title {
+  font-family: var(--font-cond);
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.vs-header-sub {
+  font-size: 10.5px;
+  color: rgba(255,255,255,0.45);
+  margin-top: 1px;
+  font-weight: 300;
+}
+.vs-note {
+  background: rgba(224,64,251,0.07);
+  border-bottom: 1px solid var(--px-divider);
+  padding: 8px 20px;
+  font-size: 10.5px;
+  color: var(--px-text-muted);
+  font-style: italic;
+  font-weight: 400;
+}
+.vs-note strong { color: var(--px-magenta); font-style: normal; font-weight: 700; }
+.vs-body { padding: 15px 20px 18px; }
+.vertical-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 11px;
+}
+.v-card {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--px-border);
+}
+.v-card-header {
+  padding: 7px 11px;
+  font-family: var(--font-cond);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+}
+.v-health  .v-card-header { background: #0d3535; }
+.v-home    .v-card-header { background: #0e4a4a; }
+.v-edu     .v-card-header { background: #1a7a6e; }
+.v-ins     .v-card-header { background: #2a9080; }
+.v-card-body {
+  background: var(--px-white);
+  padding: 9px 11px 11px;
+}
+.v-metric {
+  margin-bottom: 6px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--px-divider);
+}
+.v-metric:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+.v-metric-label {
+  font-size: 8.5px;
+  font-weight: 700;
+  color: var(--px-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.v-metric-value {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: var(--px-dark);
+  margin-top: 1px;
+}
+.v-compliance {
+  margin-top: 7px;
+  padding: 6px 8px;
+  background: var(--px-bg-hero);
+  border-radius: var(--radius-sm);
+  font-size: 10px;
+  color: var(--px-dark);
+  font-weight: 400;
+  line-height: 1.35;
+}
+.v-compliance strong { font-weight: 700; }
+
+/* ---- RESOURCE ALLOCATION SECTION ---- */
+.resource-section {
+  background: var(--px-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--px-border);
+  box-shadow: var(--shadow-card);
+  margin-bottom: 18px;
+  overflow: hidden;
+}
+.rs-header {
+  background: var(--px-dark);
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.rs-header-icon {
+  width: 28px; height: 28px;
+  background: rgba(0,230,118,0.15);
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px;
+}
+.rs-header-title {
+  font-family: var(--font-cond);
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.rs-header-sub {
+  font-size: 10.5px;
+  color: rgba(255,255,255,0.45);
+  margin-top: 1px;
+  font-weight: 300;
+}
+.rs-body { padding: 15px 20px 18px; }
+
+/* Allocation framework grid */
+.alloc-intro {
+  font-size: 12px;
+  color: var(--px-text-muted);
+  font-weight: 300;
+  margin-bottom: 14px;
+  line-height: 1.5;
+  max-width: 820px;
+}
+.alloc-intro strong { color: var(--px-dark); font-weight: 700; }
+
+.alloc-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 11px;
+  margin-bottom: 16px;
+}
+.alloc-step {
+  background: var(--px-bg-card);
+  border: 1px solid var(--px-border);
+  border-radius: var(--radius-md);
+  padding: 11px 13px;
+  position: relative;
+}
+.alloc-step-num {
+  width: 22px; height: 22px;
+  background: var(--px-dark);
+  color: var(--px-green);
+  border-radius: 50%;
+  font-size: 10px;
+  font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 8px;
+  font-family: var(--font-cond);
+}
+.alloc-step-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--px-dark);
+  margin-bottom: 5px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.alloc-step-desc {
+  font-size: 11px;
+  color: var(--px-text-muted);
+  line-height: 1.45;
+  font-weight: 300;
+}
+.alloc-step-action {
+  margin-top: 7px;
+  padding-top: 6px;
+  border-top: 1px solid var(--px-divider);
+  font-size: 10.5px;
+  font-weight: 700;
+  color: var(--px-teal);
+}
+
+/* Vertical allocation bar chart */
+.alloc-chart-label {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--px-text-muted);
+  margin-bottom: 10px;
+}
+.alloc-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.alloc-bar-row {
+  display: grid;
+  grid-template-columns: 130px 1fr 60px;
+  align-items: center;
+  gap: 10px;
+  font-size: 11.5px;
+}
+.alloc-bar-label {
+  font-weight: 500;
+  color: var(--px-text);
+  white-space: nowrap;
+}
+.alloc-bar-track {
+  height: 10px;
+  background: var(--px-bg-hero);
+  border-radius: 20px;
+  overflow: hidden;
+}
+.alloc-bar-fill {
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.3s;
+}
+.bar-health { background: #0d3535; width: 35%; }
+.bar-home   { background: #0e4a4a; width: 30%; }
+.bar-edu    { background: #1a7a6e; width: 20%; }
+.bar-ins    { background: #2a9080; width: 15%; }
+.alloc-bar-pct {
+  font-weight: 700;
+  color: var(--px-dark);
+  font-size: 11.5px;
+}
+.alloc-note {
+  margin-top: 12px;
+  padding: 9px 12px;
+  background: var(--px-bg-hero);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--px-green);
+  font-size: 11px;
+  color: var(--px-text-muted);
+  line-height: 1.45;
+  font-weight: 300;
+}
+.alloc-note strong { color: var(--px-dark); font-weight: 700; }
+
+/* ---- BOTTOM GRID ---- */
+.bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+  margin-bottom: 18px;
+}
+.card {
+  background: var(--px-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--px-border);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+.card-header {
+  padding: 11px 15px;
+  border-bottom: 1px solid var(--px-divider);
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.card-icon {
+  width: 26px; height: 26px;
+  border-radius: var(--radius-sm);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px;
+}
+.ci-teal { background: var(--px-bg-hero); }
+.ci-dark { background: rgba(13,53,53,0.08); }
+.ci-mag  { background: var(--px-magenta-dim); }
+.card-title {
+  font-family: var(--font-cond);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--px-text);
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+}
+.card-body { padding: 13px 15px 15px; }
+
+.kpi-table { width: 100%; border-collapse: collapse; }
+.kpi-table tr + tr td { border-top: 1px solid var(--px-divider); }
+.kpi-table td { padding: 6px 0; font-size: 11px; vertical-align: top; }
+.kpi-label { color: var(--px-text-muted); width: 46%; line-height: 1.35; font-weight: 400; }
+.kpi-value { color: var(--px-text); font-weight: 500; font-size: 10.5px; padding-left: 10px; line-height: 1.35; }
+.kpi-highlight { color: var(--px-teal); font-weight: 700; }
+
+.test-list { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.test-item { display: grid; grid-template-columns: 20px 1fr; gap: 8px; align-items: start; font-size: 11.5px; line-height: 1.4; }
+.test-num {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--px-dark);
+  color: var(--px-green);
+  font-size: 9px;
+  font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+  font-family: var(--font-cond);
+}
+
+/* ---- BOTTOM TRIO ---- */
+.bottom-trio {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 13px;
+  margin-bottom: 18px;
+}
+.trio-item {
+  display: grid;
+  grid-template-columns: 8px 1fr;
+  gap: 7px;
+  align-items: start;
+  font-size: 11.5px;
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+.trio-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  margin-top: 5px;
+  flex-shrink: 0;
+}
+.td-teal { background: var(--px-teal); }
+.td-dark { background: var(--px-dark); }
+.td-mag  { background: var(--px-magenta); }
+
+/* ---- AI SECTION ---- */
+.ai-section {
+  background: var(--px-dark);
+  border-radius: var(--radius-lg);
+  padding: 18px 22px 20px;
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+}
+.ai-section::before {
+  content: '';
+  position: absolute;
+  right: -20px; top: -30px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(224,64,251,0.18) 0%, transparent 65%);
+  pointer-events: none;
+}
+.ai-section::after {
+  content: '';
+  position: absolute;
+  left: 30px; bottom: -30px;
+  width: 140px; height: 140px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0,230,118,0.1) 0%, transparent 65%);
+  pointer-events: none;
+}
+.ai-inner { position: relative; z-index: 1; }
+.ai-top {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 20px;
+  align-items: start;
+  margin-bottom: 16px;
+}
+.ai-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--px-green);
+  margin-bottom: 5px;
+}
+.ai-title {
+  font-family: var(--font-cond);
+  font-size: 18px;
+  font-weight: 900;
+  color: #fff;
+  margin-bottom: 8px;
+  line-height: 1.15;
+}
+.ai-phases {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 16px;
+}
+.ai-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+}
+.ai-card-phase {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--px-green);
+  margin-bottom: 4px;
+}
+.ai-card-title {
+  font-family: var(--font-cond);
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.ai-card-desc {
+  font-size: 10.5px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.4;
+  font-weight: 300;
+}
+
+/* ---- SIGNAL ROW ---- */
+.signal-row {
+  background: var(--px-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--px-border);
+  padding: 13px 18px;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  align-items: center;
+  box-shadow: var(--shadow-card);
+  margin-bottom: 18px;
+}
+.signal-label {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--px-dark);
+  white-space: nowrap;
+}
+.signal-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.chip {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 10.5px;
+  font-weight: 500;
+  border: 1px solid var(--px-border);
+  background: var(--px-bg-page);
+  color: var(--px-text);
+}
+.chip-dark {
+  background: var(--px-dark);
+  color: #fff;
+  border-color: var(--px-dark);
+}
+.chip-green {
+  background: rgba(0,230,118,0.12);
+  color: var(--px-dark);
+  border-color: rgba(0,230,118,0.3);
+}
+
+/* ---- FOOTER ---- */
+.doc-footer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  padding-top: 13px;
+  border-top: 1px solid var(--px-divider);
+}
+.footer-left { font-size: 10.5px; color: var(--px-text-faint); font-weight: 300; }
+.footer-right { font-size: 10.5px; font-weight: 700; color: var(--px-text-muted); text-transform: uppercase; letter-spacing: 0.08em; }
+
+/* ---- INTERACTIVE PRESENTATION LAYER ---- */
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 3px;
+  background: transparent;
+  z-index: 100;
+}
+.scroll-progress-bar {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: linear-gradient(90deg, var(--px-green), var(--px-magenta));
+  transition: width 80ms linear;
+}
+.section-nav {
+  position: sticky;
+  top: 10px;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px;
+  margin: 0 0 18px;
+  overflow-x: auto;
+  background: rgba(255,255,255,0.9);
+  border: 1px solid rgba(197,221,224,0.9);
+  border-radius: 12px;
+  box-shadow: 0 7px 24px rgba(13,53,53,0.1);
+  backdrop-filter: blur(14px);
+  scrollbar-width: none;
+}
+.section-nav::-webkit-scrollbar { display: none; }
+.section-nav button {
+  appearance: none;
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 11px;
+  background: transparent;
+  color: var(--px-text-muted);
+  font: 700 9px/1 var(--font);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background .18s ease, color .18s ease, transform .18s ease;
+}
+.section-nav button:hover { background: var(--px-bg-hero); color: var(--px-dark); transform: translateY(-1px); }
+.section-nav button.active { background: var(--px-dark); color: #fff; }
+.section-nav .nav-action { margin-left: auto; color: var(--px-teal); }
+.section-label {
+  cursor: pointer;
+  user-select: none;
+  scroll-margin-top: 78px;
+}
+.section-label::before {
+  content: '\2212';
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  border: 1px solid var(--px-border);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--px-teal);
+  font-size: 12px;
+  line-height: 1;
+}
+.section-label[aria-expanded="false"]::before { content: '+'; }
+.section-label:focus-visible, .section-nav button:focus-visible {
+  outline: 3px solid rgba(0,201,167,.32);
+  outline-offset: 3px;
+}
+.section-content {
+  display: block;
+  overflow: hidden;
+}
+.section-content[hidden] { display: none; }
+.phase-card, .card, .vertical-card, .le-milestone, .alloc-step, .ai-card {
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+}
+.phase-card:hover, .card:hover, .vertical-card:hover, .le-milestone:hover, .alloc-step:hover, .ai-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+}
+.header { box-shadow: 0 18px 48px rgba(13,53,53,.18); }
+.header-logo img { height: 42px; }
+.reveal { opacity: 0; transform: translateY(10px); }
+.reveal.is-visible { opacity: 1; transform: none; transition: opacity .45s ease, transform .45s ease; }
+
+@media (max-width: 760px) {
+  .page { padding: 18px 14px 36px; }
+  .header { padding: 26px 24px 24px; }
+  .header-inner { grid-template-columns: 1fr; }
+  .header-meta { text-align: left; }
+  .header-title { font-size: 36px; }
+  .section-nav .nav-action { margin-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+  .reveal { opacity: 1; transform: none; }
+}
+
+@media print {
+  body { background: #fff; }
+  body::before { display: none; }
+  .page { padding: 18px 22px; max-width: 100%; }
+  .header { border-radius: 8px; }
+  .card, .lead-engine, .vertical-section, .ai-section, .signal-row, .resource-section { box-shadow: none; }
+  .phase-grid, .bottom-grid, .bottom-trio, .alloc-steps { break-inside: avoid; }
+  .section-nav, .scroll-progress { display: none !important; }
+  .section-content[hidden] { display: block !important; }
+}
+</style>
+</head>
+<body>
+<div class="scroll-progress" aria-hidden="true"><span class="scroll-progress-bar"></span></div>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <div>
+        <div class="header-logo">
+          <img src="px-logo.png" alt="PX">
+        </div>
+        <h1 class="header-title">First <span>90 Days</span>:<br>VP of Media at PX</h1>
+        <p class="header-sub">How I build the operating model, set the lead engine baseline, and prove value fast across agency and owned &amp; operated.</p>
+      </div>
+      <div class="header-meta">
+        <div class="header-meta-name">Nickolaus Trevino</div>
+        <div class="header-meta-role">VP of Media Candidate</div>
+        <div class="header-badge">Confidential</div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="section-nav" aria-label="Framework sections">
+    <button class="nav-action" type="button" data-toggle-all>Collapse all</button>
+  </nav>
+
+  <!-- NORTH STAR -->
+  <div class="north-star">
+    <div class="ns-icon">N</div>
+    <div>
+      <div class="ns-label">North Star Objective</div>
+      <div class="ns-statement">Build a media function where <em>every dollar spent</em> is traceable to a lead sold, a client retained, or a margin point gained across both agency and O&amp;O, in every vertical PX serves.</div>
+    </div>
+  </div>
+
+  <!-- THREE PHASES -->
+  <div class="section-label">Execution Roadmap</div>
+  <div class="phase-grid">
+
+    <div class="phase-card p1">
+      <div class="phase-header">
+        <div class="phase-num">Phase 1 · Days 1–30</div>
+        <div class="phase-title">Listen, Map &amp; Audit</div>
+        <div class="phase-tagline">No decisions. Only diagnosis.</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-mantra">"You can't optimize what you haven't measured. You can't lead what you don't understand."</div>
+        <ul class="phase-items">
+          <li class="phase-item"><span class="pi-dot"></span><div><strong>Team 1:1s</strong> Every person on the 8-person team. What's working, what's broken, where are they blocked? No judgment, only listening.</div></li>
+          <li class="phase-item"><span class="pi-dot"></span><div><strong>Channel audit</strong> 90 days of data per channel. CPL by source, vertical, device, and match type. No narratives yet, just the numbers.</div></li>
+          <li class="phase-item"><span class="pi-dot"></span><div><strong>O&amp;O funnel audit</strong> Map every owned property: traffic source, landing page, form, lead quality score, marketplace bid price received. Identify the margin spread per vertical.</div></li>
+          <li class="phase-item"><span class="pi-dot"></span><div><strong>Sub-source quality audit</strong> Pull lead acceptance rates, contact rates, and downstream conversion by publisher. Flag any vendor at 2x CPL floor or below 40% contact rate.</div></li>
+          <li class="phase-item"><span class="pi-dot"></span><div><strong>Agency client review</strong> Current KPIs, contract terms, escalation history, and gaps in proactive strategy coverage for all 7 clients.</div></li>
+          <li class="phase-item"><span class="pi-dot"></span><div><strong>Compliance and tech stack inventory</strong> TrustedForm/Jornaya coverage, CMS approval status, TCPA consent architecture, GA4, attribution platform, DSP seats.</div></li>
+        </ul>
+        <div class="deliverable-row">
+          <div class="del-label">Deliverable by Day 30</div>
+          <span class="del-tag del-1">State of Media Memo</span>
+          <div class="del-desc">Where we are, what the data says, top 5 risks, top 5 opportunities. Shared with leadership.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card p2">
+      <div class="phase-header">
+        <div class="phase-num">Phase 2 · Days 31–60</div>
+        <div class="phase-title">Baseline, Structure &amp; First Tests</div>
+        <div class="phase-tagline">Set the standard. Run controlled experiments.</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-mantra">"A test without a baseline is a guess. A baseline without a test is a report."</div>
+        <ul class="phase-items">
+          <li class="phase-item"><span class="pi-dot"></span><div><strong>KPI framework</strong> Formalize the metric stack by function: O&amp;O Margin/Lead, Agency Client Efficiency Score, CPL by vertical, form CVR by device, sub-source quality score.</div></li>
+          <li class="phase-item"><span class="pi-dot"></span><div><strong>O&amp;O CPL floors by vertical</strong> Set break-even CPL per vertical by mapping average marketplace bid price vs. current acquisition cost. This becomes the bid guardrail and sub-source kill switch.</div></li>
+          <li class="phase-item"><span class="pi-dot"></span><div><strong>Sub-source prune</strong> Cut any vendor at 2x CPL floor or below 40% contact rate. Immediate margin recapture with zero new spend. First visible win for leadership.</div></li>
+          <li class="phase-item"><span class="pi-dot"></span><div><strong>Reporting cadence</strong> Weekly channel pulse (tactical), monthly executive dashboard (strategic). Automated in Looker or GA4. No more manual decks.</div></li>
+          <li class="phase-item"><span class="pi-dot"></span><div><strong>First test roadmap</strong> 5 priority tests across O&amp;O funnels and paid channels. Prioritized by: revenue impact x speed to result x resource cost.</div></li>
+          <li class="phase-item"><span class="pi-dot"></span><div><strong>Team role clarity</strong> Each direct report gets a defined ownership area, 30/60/90 expectation doc, and one KPI they personally own.</div></li>
+        </ul>
+        <div class="deliverable-row">
+          <div class="del-label">Deliverable by Day 60</div>
+          <span class="del-tag del-2">KPI Framework + Testing Roadmap</span>
+          <div class="del-desc">One page per channel. Metric definitions, baselines, targets, and test queue ranked by priority.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-card p3">
+      <div class="phase-header">
+        <div class="phase-num">Phase 3 · Days 61–90</div>
+        <div class="phase-title">Scale What Works. Kill What Doesn't.</div>
+        <div class="phase-tagline">Ship results. Build confidence.</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-mantra">"An executive who spends 90 days planning has missed the point. Test early, iterate publicly, report transparently."</div>
+        <ul class="phase-items">
+          <li class="phase-item"><span class="pi-dot"></span><div><strong>First wave results review</strong> Present test findings from Phase 2. Winners get budget. Losers get documented, not quietly abandoned.</div></li>
+          <li class="phase-item"><span class="pi-dot"></span><div><strong>Budget reallocation</strong> Shift spend toward over-performing channels and verticals based on actual CPL and margin data. Propose to leadership with clear rationale.</div></li>
+          <li class="phase-item"><span class="pi-dot"></span><div><strong>O&amp;O vertical expansion pitch</strong> Identify one new vertical or funnel type where PX's marketplace has buyer demand but no O&amp;O supply. Build the business case.</div></li>
+          <li class="phase-item"><span class="pi-dot"></span><div><strong>Agency QBR structure live</strong> Quarterly business review template deployed across all 7 clients: performance vs. benchmarks, channel mix recommendation, 90-day forward plan.</div></li>
+          <li class="phase-item"><span class="pi-dot"></span><div><strong>Creative testing framework live</strong> Systematic A/B creative rotation on Meta and top DSP. Results feeding back to copy and design within a 2-week loop.</div></li>
+          <li class="phase-item"><span class="pi-dot"></span><div><strong>AI workflow #1 live</strong> First automation deployed: reporting pipeline, bid alert system, or QA checklist. Team gets 10+ hours/week back.</div></li>
+        </ul>
+        <div class="deliverable-row">
+          <div class="del-label">Deliverable by Day 90</div>
+          <span class="del-tag del-3">90-Day Impact Report + Q2 Media Plan</span>
+          <div class="del-desc">Presented to executive leadership. What changed, what it cost, what it earned, what comes next.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- LEAD ENGINE -->
+  <div class="section-label">Lead Engine Milestones</div>
+  <div class="lead-engine">
+    <div class="le-header">
+      <div class="le-header-icon">📈</div>
+      <div>
+        <div class="le-header-title">O&amp;O Lead Volume &amp; Quality Milestones — The Margin Engine</div>
+        <div class="le-header-sub">Specific, measurable targets for the owned &amp; operated portfolio across all 90 days</div>
+      </div>
+    </div>
+    <div class="le-body">
+      <div class="le-grid">
+        <div>
+          <div class="le-col-label">Lead Volume Milestones</div>
+          <ul class="milestone-list">
+            <li class="milestone">
+              <span class="m-badge m-d30">Day 30</span>
+              <div class="m-text"><strong>Baseline established.</strong> Full audit of current O&amp;O lead volume by vertical. Document current CPL, volume, and marketplace bid price for each.
+                <span class="target">Target: Complete volume map with 90-day trend by Day 30.</span>
+              </div>
+            </li>
+            <li class="milestone">
+              <span class="m-badge m-d30">Day 30</span>
+              <div class="m-text"><strong>Sub-source kill list.</strong> Identify all publisher sources generating leads at 2x above vertical CPL floor. Pause immediately.
+                <span class="target">Target: 10–20% immediate CPL reduction on affected verticals with zero new spend.</span>
+              </div>
+            </li>
+            <li class="milestone">
+              <span class="m-badge m-d60">Day 60</span>
+              <div class="m-text"><strong>Form CVR lift — first test results.</strong> Landing page form length test complete on top O&amp;O property. Winning variant deployed.
+                <span class="target">Target: +15–25% form completion rate on mobile.</span>
+              </div>
+            </li>
+            <li class="milestone">
+              <span class="m-badge m-d60">Day 60</span>
+              <div class="m-text"><strong>Paid search restructure complete.</strong> Match type cleanup, negative keyword expansion, and query-level CPL floor enforcement live.
+                <span class="target">Target: CPL reduction of 15–25% vs. Day 1 baseline.</span>
+              </div>
+            </li>
+            <li class="milestone">
+              <span class="m-badge m-d90">Day 90</span>
+              <div class="m-text"><strong>O&amp;O volume growth vs. baseline.</strong> Net lead volume increase from CRO wins, search restructure, and creative testing combined.
+                <span class="target">Target: +20–35% lead volume at equal or lower CPL vs. Day 1 baseline.</span>
+              </div>
+            </li>
+            <li class="milestone">
+              <span class="m-badge m-d90">Day 90</span>
+              <div class="m-text"><strong>New vertical expansion pitch submitted.</strong> Business case for one new O&amp;O funnel where PX marketplace has buyer demand but no owned supply.
+                <span class="target">Target: Pitch with projected CPL, volume, and margin spread presented to leadership.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div class="le-col-label">Lead Quality Milestones</div>
+          <ul class="milestone-list">
+            <li class="milestone">
+              <span class="m-badge m-d30">Day 30</span>
+              <div class="m-text"><strong>Lead quality audit complete.</strong> Map contact rate, acceptance rate, and downstream conversion rate by sub-source and vertical.
+                <span class="target">Target: Quality scorecard per vertical delivered by Day 30.</span>
+              </div>
+            </li>
+            <li class="milestone">
+              <span class="m-badge m-d30">Day 30</span>
+              <div class="m-text"><strong>Compliance architecture audit.</strong> Confirm TrustedForm or Jornaya coverage on all O&amp;O forms. Identify any TCPA consent gaps.
+                <span class="target">Target: 100% of O&amp;O forms covered by lead certification by Day 45.</span>
+              </div>
+            </li>
+            <li class="milestone">
+              <span class="m-badge m-d60">Day 60</span>
+              <div class="m-text"><strong>Contact rate improvement.</strong> Phone validation (Trestle) and RRDB Live Contactability filters active on all O&amp;O campaigns.
+                <span class="target">Target: Contact rate lift of +10–20% on top O&amp;O verticals vs. Day 1 baseline.</span>
+              </div>
+            </li>
+            <li class="milestone">
+              <span class="m-badge m-d60">Day 60</span>
+              <div class="m-text"><strong>Progressive disclosure form live.</strong> Multi-step form deployed on top O&amp;O property. Fewer fields at entry, more qualifying questions downstream.
+                <span class="target">Target: Lead quality score up +5–10% vs. single-step form.</span>
+              </div>
+            </li>
+            <li class="milestone">
+              <span class="m-badge m-d90">Day 90</span>
+              <div class="m-text"><strong>Margin per lead improvement.</strong> Combined effect of CPL reduction + quality lift + sub-source pruning on O&amp;O margin spread.
+                <span class="target">Target: O&amp;O Margin/Lead up +15–30% vs. Day 1 baseline across top 2 verticals.</span>
+              </div>
+            </li>
+            <li class="milestone">
+              <span class="m-badge m-d90">Day 90</span>
+              <div class="m-text"><strong>Lead-to-sale lag mapped.</strong> Days from O&amp;O lead submission to downstream conversion per buyer, per vertical.
+                <span class="target">Target: Lag data for all active O&amp;O verticals integrated into CPL floor model.</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="le-col-label" style="margin-top:4px;">Lead Quality Architecture — Four Pillars I Enforce From Day 1</div>
+      <div class="quality-pillars">
+        <div class="qp-card">
+          <div class="qp-title">Consent Integrity</div>
+          <div class="qp-desc">TrustedForm or Jornaya on every O&amp;O form. Active-consent handshake before lead enters the ping-post flow. TCPA exposure eliminated at source.</div>
+        </div>
+        <div class="qp-card">
+          <div class="qp-title">Contact Validity</div>
+          <div class="qp-desc">Phone validation (Trestle) + RRDB Live Contactability filters. No disconnected numbers, no low-probability contacts delivered to buyers.</div>
+        </div>
+        <div class="qp-card">
+          <div class="qp-title">Intent Qualification</div>
+          <div class="qp-desc">Progressive disclosure forms with qualifying questions downstream. Higher intent signals = higher marketplace bid price = wider margin spread.</div>
+        </div>
+        <div class="qp-card">
+          <div class="qp-title">Source Accountability</div>
+          <div class="qp-desc">Sub-source CPL floor enforcement. Any publisher at 2x floor or below 40% contact rate is paused. No exceptions. Quality is non-negotiable.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VERTICAL PLAYBOOK -->
+  <div class="section-label">Vertical Strategy</div>
+  <div class="vertical-section">
+    <div class="vs-header">
+      <div class="vs-header-icon">🏷</div>
+      <div>
+        <div class="vs-header-title">Vertical Playbook — CPL Targets, Compliance, &amp; 90-Day Priority</div>
+        <div class="vs-header-sub">Health, Home Services, Education, and Insurance — each with distinct economics and compliance requirements</div>
+      </div>
+    </div>
+    <div class="vs-note"><strong>Note:</strong> CPL ranges and marketplace bid prices below are illustrative examples based on industry benchmarks. Actual targets will be set after completing the Day 30 audit of PX's live data.</div>
+    <div class="vs-body">
+      <div class="vertical-grid">
+        <div class="v-card v-health">
+          <div class="v-card-header">Health / Medicare</div>
+          <div class="v-card-body">
+            <div class="v-metric">
+              <div class="v-metric-label">CPL Target Range (Example)</div>
+              <div class="v-metric-value">$40–$80 (Medicare Advantage)</div>
+            </div>
+            <div class="v-metric">
+              <div class="v-metric-label">Marketplace Bid Price (Example)</div>
+              <div class="v-metric-value">$80–$150 per qualified lead</div>
+            </div>
+            <div class="v-metric">
+              <div class="v-metric-label">90-Day Priority</div>
+              <div class="v-metric-value">CMS-compliant creative templates. AEP readiness audit. Phone validation active.</div>
+            </div>
+            <div class="v-compliance"><strong>Compliance:</strong> CMS approval required for every creative asset. Build compliance-first templates — once a format is approved, swap signals without restarting the 45-day review cycle.</div>
+          </div>
+        </div>
+        <div class="v-card v-home">
+          <div class="v-card-header">Home Services</div>
+          <div class="v-card-body">
+            <div class="v-metric">
+              <div class="v-metric-label">CPL Target Range (Example)</div>
+              <div class="v-metric-value">$25–$60 (Solar/Roofing/HVAC)</div>
+            </div>
+            <div class="v-metric">
+              <div class="v-metric-label">Marketplace Bid Price (Example)</div>
+              <div class="v-metric-value">$50–$120 per qualified lead</div>
+            </div>
+            <div class="v-metric">
+              <div class="v-metric-label">90-Day Priority</div>
+              <div class="v-metric-value">O&amp;O funnel build/optimize. Sub-source prune. Mobile CTA test. Maturity Curve integration.</div>
+            </div>
+            <div class="v-compliance"><strong>Compliance:</strong> TCPA active-consent on all forms. Litigator Scrub (DNC.com) before any dialer delivery. No shared consent language.</div>
+          </div>
+        </div>
+        <div class="v-card v-edu">
+          <div class="v-card-header">Education</div>
+          <div class="v-card-body">
+            <div class="v-metric">
+              <div class="v-metric-label">CPL Target Range (Example)</div>
+              <div class="v-metric-value">$30–$70 (Online Degree)</div>
+            </div>
+            <div class="v-metric">
+              <div class="v-metric-label">Marketplace Bid Price (Example)</div>
+              <div class="v-metric-value">$60–$130 per qualified enrollment lead</div>
+            </div>
+            <div class="v-metric">
+              <div class="v-metric-label">90-Day Priority</div>
+              <div class="v-metric-value">SEO + content audit. Program-level intent targeting. Enrollment capacity alignment.</div>
+            </div>
+            <div class="v-compliance"><strong>Compliance:</strong> No misleading job placement claims. Explicit consent required. Gainful Employment rules apply to all creative.</div>
+          </div>
+        </div>
+        <div class="v-card v-ins">
+          <div class="v-card-header">Insurance</div>
+          <div class="v-card-body">
+            <div class="v-metric">
+              <div class="v-metric-label">CPL Target Range (Example)</div>
+              <div class="v-metric-value">$20–$55 (Auto/Home/Life)</div>
+            </div>
+            <div class="v-metric">
+              <div class="v-metric-label">Marketplace Bid Price (Example)</div>
+              <div class="v-metric-value">$45–$110 per qualified lead</div>
+            </div>
+            <div class="v-metric">
+              <div class="v-metric-label">90-Day Priority</div>
+              <div class="v-metric-value">Form optimization. Ping-post bid floor calibration. Household financial data filter (RRDB).</div>
+            </div>
+            <div class="v-compliance"><strong>Compliance:</strong> Brand-explicit consent architecture. State-level licensing disclosures on all landing pages. Jornaya coverage mandatory.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESOURCE ALLOCATION SECTION -->
+  <div class="section-label">Resource Allocation Framework</div>
+  <div class="resource-section">
+    <div class="rs-header">
+      <div class="rs-header-icon">💰</div>
+      <div>
+        <div class="rs-header-title">Steps Toward Vertical Resource Allocation — Improving Agency P&amp;L</div>
+        <div class="rs-header-sub">How I prioritize team time, budget, and attention across verticals to maximize margin contribution</div>
+      </div>
+    </div>
+    <div class="rs-body">
+      <p class="alloc-intro">Resource allocation is not set at hire. It is <strong>earned by data</strong>. The process below governs how team bandwidth, media budget, and strategic attention get distributed across verticals and agency clients to maximize P&amp;L contribution at the portfolio level.</p>
+
+      <div class="alloc-steps">
+        <div class="alloc-step">
+          <div class="alloc-step-num">1</div>
+          <div class="alloc-step-title">Score Every Vertical</div>
+          <div class="alloc-step-desc">By Day 30, each vertical gets a P&amp;L score: current margin per lead, marketplace bid price, volume capacity, and compliance complexity. This is the allocation starting point, not a gut call.</div>
+          <div class="alloc-step-action">Output: Vertical P&amp;L scorecard shared with leadership.</div>
+        </div>
+        <div class="alloc-step">
+          <div class="alloc-step-num">2</div>
+          <div class="alloc-step-title">Tier by Margin Potential</div>
+          <div class="alloc-step-desc">Verticals are ranked: Tier 1 (highest margin spread, highest buyer demand), Tier 2 (growth potential, needs investment), Tier 3 (maintenance mode, low margin). Resources follow the tiers.</div>
+          <div class="alloc-step-action">Output: Tiered vertical map with recommended team ownership per tier.</div>
+        </div>
+        <div class="alloc-step">
+          <div class="alloc-step-num">3</div>
+          <div class="alloc-step-title">Allocate Team Bandwidth</div>
+          <div class="alloc-step-desc">Senior talent goes to Tier 1 verticals. Tier 2 gets a dedicated growth owner. Tier 3 is process-managed with automated reporting and a monthly review. No one is spread across all four verticals equally.</div>
+          <div class="alloc-step-action">Output: Team ownership map with clear vertical accountability.</div>
+        </div>
+        <div class="alloc-step">
+          <div class="alloc-step-num">4</div>
+          <div class="alloc-step-title">Rebalance Quarterly</div>
+          <div class="alloc-step-desc">At each QBR, the vertical scorecard is refreshed. If a Tier 2 vertical has closed the margin gap, it earns more resources. If a Tier 1 vertical is plateauing, resources shift to the next growth opportunity.</div>
+          <div class="alloc-step-action">Output: Quarterly reallocation recommendation presented to leadership.</div>
+        </div>
+      </div>
+
+      <div class="alloc-chart-label">Illustrative Starting Allocation — Subject to Day 30 Audit (Example Only)</div>
+      <div class="alloc-bars">
+        <div class="alloc-bar-row">
+          <div class="alloc-bar-label">Health / Medicare</div>
+          <div class="alloc-bar-track"><div class="alloc-bar-fill bar-health"></div></div>
+          <div class="alloc-bar-pct">35%</div>
+        </div>
+        <div class="alloc-bar-row">
+          <div class="alloc-bar-label">Home Services</div>
+          <div class="alloc-bar-track"><div class="alloc-bar-fill bar-home"></div></div>
+          <div class="alloc-bar-pct">30%</div>
+        </div>
+        <div class="alloc-bar-row">
+          <div class="alloc-bar-label">Education</div>
+          <div class="alloc-bar-track"><div class="alloc-bar-fill bar-edu"></div></div>
+          <div class="alloc-bar-pct">20%</div>
+        </div>
+        <div class="alloc-bar-row">
+          <div class="alloc-bar-label">Insurance</div>
+          <div class="alloc-bar-track"><div class="alloc-bar-fill bar-ins"></div></div>
+          <div class="alloc-bar-pct">15%</div>
+        </div>
+      </div>
+
+      <div class="alloc-note"><strong>Agency P&amp;L impact:</strong> The same tiering logic applies to agency clients. Tier 1 clients (highest revenue, highest retention risk) get VP-level strategic involvement. Tier 2 gets senior lead ownership. Tier 3 is process-managed. This ensures the team's highest-value time is always deployed where it protects and grows the most margin, not spread evenly across all accounts regardless of size or risk.</div>
+    </div>
+  </div>
+
+  <!-- BOTTOM GRID -->
+  <div class="section-label">Performance Architecture</div>
+  <div class="bottom-grid">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon ci-teal">📐</div>
+        <div class="card-title">KPI Master Stack — What I Track &amp; Why</div>
+      </div>
+      <div class="card-body">
+        <table class="kpi-table">
+          <tbody>
+            <tr>
+              <td class="kpi-label">O&amp;O: Margin Per Lead</td>
+              <td class="kpi-value"><span class="kpi-highlight">Primary P&amp;L metric.</span> Lead sale price minus media cost, by vertical and source. The scorecard.</td>
+            </tr>
+            <tr>
+              <td class="kpi-label">O&amp;O: Form Completion Rate</td>
+              <td class="kpi-value">% of sessions reaching confirmed submit, by device. Most direct lever on margin.</td>
+            </tr>
+            <tr>
+              <td class="kpi-label">O&amp;O: Contact Rate by Source</td>
+              <td class="kpi-value">% of delivered leads that are reachable. Below 40% = source gets paused.</td>
+            </tr>
+            <tr>
+              <td class="kpi-label">O&amp;O: Lead-to-Sale Lag</td>
+              <td class="kpi-value">Days from submission to downstream conversion. Sets CPL floor accuracy.</td>
+            </tr>
+            <tr>
+              <td class="kpi-label">Agency: Client Efficiency Score</td>
+              <td class="kpi-value">CPL vs. benchmark, ROAS trend, YoY growth. Tells me if the relationship is defensible.</td>
+            </tr>
+            <tr>
+              <td class="kpi-label">Paid Search: Impression Share Lost</td>
+              <td class="kpi-value">Lost IS by budget vs. rank — tells me where to fight for volume vs. quality.</td>
+            </tr>
+            <tr>
+              <td class="kpi-label">Paid Social: Hook Rate + Hold Rate</td>
+              <td class="kpi-value">3-sec views / impressions and 50% watch / 3-sec views. Diagnoses creative fatigue.</td>
+            </tr>
+            <tr>
+              <td class="kpi-label">SEO: Keyword Velocity</td>
+              <td class="kpi-value">New top-10 rankings per month by intent tier. Measures organic momentum.</td>
+            </tr>
+            <tr>
+              <td class="kpi-label">Team: Test Velocity</td>
+              <td class="kpi-value">Statistically valid tests completed per month. Measures learning capacity, not just execution.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon ci-dark">🧪</div>
+        <div class="card-title">Priority First Tests — Days 31–60</div>
+      </div>
+      <div class="card-body">
+        <ul class="test-list">
+          <li class="test-item">
+            <div class="test-num">1</div>
+            <div><strong>O&amp;O Form: Progressive Disclosure.</strong> 3-field vs. 5-field vs. progressive multi-step. Hypothesis: fewer initial fields raises form start rate; progressive flow raises lead quality score and marketplace bid price.</div>
+          </li>
+          <li class="test-item">
+            <div class="test-num">2</div>
+            <div><strong>Paid Search: Match Type Restructure.</strong> Collapse broad-modified into exact/phrase with tighter negatives. Hypothesis: CPL drops 15–25% within 30 days by eliminating junk query traffic.</div>
+          </li>
+          <li class="test-item">
+            <div class="test-num">3</div>
+            <div><strong>Meta: Creative Format Isolation.</strong> Static vs. UGC-style video vs. testimonial carousel on top O&amp;O vertical. Format variable isolated; audience and copy held constant.</div>
+          </li>
+          <li class="test-item">
+            <div class="test-num">4</div>
+            <div><strong>Sub-source Prune.</strong> Cut any vendor at 2x CPL floor or below 40% contact rate. Immediate margin recapture with zero new spend. First visible win for leadership.</div>
+          </li>
+          <li class="test-item">
+            <div class="test-num">5</div>
+            <div><strong>Mobile CTA: Sticky Bar vs. Inline vs. Tap-to-Call.</strong> Top O&amp;O funnel on mobile. Mobile CVR gap is almost always the first margin unlock on any owned funnel.</div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- BOTTOM TRIO -->
+  <div class="bottom-trio">
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon ci-teal">👥</div>
+        <div class="card-title">Team Operating Model</div>
+      </div>
+      <div class="card-body">
+        <div class="trio-item"><span class="trio-dot td-teal"></span><div><strong>Weekly standup:</strong> blockers only. 15 min. Not a status report.</div></div>
+        <div class="trio-item"><span class="trio-dot td-teal"></span><div><strong>Monthly channel owner review:</strong> each person presents their KPI vs. target + one proposed test.</div></div>
+        <div class="trio-item"><span class="trio-dot td-teal"></span><div><strong>Test log:</strong> shared doc. Every test logged with hypothesis, result, and decision. No institutional amnesia.</div></div>
+        <div class="trio-item"><span class="trio-dot td-teal"></span><div><strong>Role ownership map:</strong> one person owns one KPI. Shared ownership = no ownership.</div></div>
+        <div class="trio-item"><span class="trio-dot td-teal"></span><div><strong>Cross-functional sync:</strong> bi-weekly with analytics, sales, and product. Media insights flow upstream.</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon ci-dark">🤝</div>
+        <div class="card-title">Agency Client Framework</div>
+      </div>
+      <div class="card-body">
+        <div class="trio-item"><span class="trio-dot td-dark"></span><div><strong>Tier clients by revenue:</strong> Tier 1 gets VP-level strategy involvement. Tier 2 gets senior lead. Tier 3 is process-managed.</div></div>
+        <div class="trio-item"><span class="trio-dot td-dark"></span><div><strong>QBR template:</strong> Performance vs. benchmark, channel mix recommendation, 90-day plan. Standardized across all 7 accounts.</div></div>
+        <div class="trio-item"><span class="trio-dot td-dark"></span><div><strong>Escalation protocol:</strong> I am the senior escalation point. Team knows when to flag me and exactly what to prepare.</div></div>
+        <div class="trio-item"><span class="trio-dot td-dark"></span><div><strong>O&amp;O insight loop:</strong> What we learn from our own funnels gets packaged into a monthly "what's working" briefing for agency clients. The O&amp;O side is the agency's competitive intelligence.</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        <div class="card-icon ci-mag">⚡</div>
+        <div class="card-title">How I Earn Trust Fast</div>
+      </div>
+      <div class="card-body">
+        <div class="trio-item"><span class="trio-dot td-mag"></span><div><strong>Day 30 memo:</strong> Leadership hears a clear diagnosis, not vague optimism. Signals executive thinking immediately.</div></div>
+        <div class="trio-item"><span class="trio-dot td-mag"></span><div><strong>Sub-source prune:</strong> A margin win that requires no new budget in week 5 or 6. Proves I know the levers.</div></div>
+        <div class="trio-item"><span class="trio-dot td-mag"></span><div><strong>One big agency win:</strong> Identify the highest-risk client relationship and personally stabilize it by Day 45.</div></div>
+        <div class="trio-item"><span class="trio-dot td-mag"></span><div><strong>Transparent reporting:</strong> Bad news travels up fast, in writing, with a mitigation plan. I don't hide underperformance.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI SECTION -->
+  <div class="section-label">AI &amp; Operational Efficiency</div>
+  <div class="ai-section">
+    <div class="ai-inner">
+      <div class="ai-top">
+        <div>
+          <div class="ai-label">AI Adoption Roadmap</div>
+          <div class="ai-title">Getting the Team<br>Out of the Weeds</div>
+        </div>
+        <div style="flex:1">
+          <div class="ai-phases">
+            <div class="ai-card">
+              <div class="ai-card-phase">Days 1–30 · Identify</div>
+              <div class="ai-card-title">Audit Time Waste</div>
+              <div class="ai-card-desc">Map the top 3 tasks consuming the most team time with the least strategic value. Reporting, QA, and manual bid adjustments are almost always the answer.</div>
+            </div>
+            <div class="ai-card">
+              <div class="ai-card-phase">Days 31–60 · Automate</div>
+              <div class="ai-card-title">First Workflow Live</div>
+              <div class="ai-card-desc">Deploy one automation: automated reporting pipeline, bid alert system (ROAS threshold triggers), or QA checklist. Team gets 10+ hours/week back. Trust in the process follows.</div>
+            </div>
+            <div class="ai-card">
+              <div class="ai-card-phase">Days 61–90 · Scale</div>
+              <div class="ai-card-title">Team Becomes Advocates</div>
+              <div class="ai-card-desc">Once the team experiences the time savings, they become the advocates for the next automation. AI adoption becomes pull, not push. Bandwidth shifts from execution to strategy.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- SIGNAL ROW -->
+  <div class="signal-row">
+    <div class="signal-label">The Signal I'm Sending to PX</div>
+    <div class="signal-chips">
+      <span class="chip chip-dark">I build systems, not campaigns</span>
+      <span class="chip chip-green">I own P&amp;L, not just performance</span>
+      <span class="chip chip-dark">I know lead gen economics</span>
+      <span class="chip chip-green">I test with discipline, not instinct</span>
+      <span class="chip">I develop talent, not dependency</span>
+      <span class="chip">I earn trust through results</span>
+      <span class="chip chip-dark">Compliance is a competitive moat</span>
+      <span class="chip chip-green">I manufacture leads — I don't just buy ads</span>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="doc-footer">
+    <div class="footer-left">Prepared for the VP of Media interview · PX.com · Confidential</div>
+    <div class="footer-right">Nickolaus Trevino</div>
+  </footer>
+
+</div>
+<script>
+(() => {
+  const labels = [...document.querySelectorAll('.section-label')];
+  const nav = document.querySelector('.section-nav');
+  const toggleAll = nav.querySelector('[data-toggle-all]');
+  const progress = document.querySelector('.scroll-progress-bar');
+  const navButtons = [];
+
+  const slugify = text => text.toLowerCase().replace(/&/g, 'and').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+  labels.forEach((label, index) => {
+    const id = `section-${slugify(label.textContent)}`;
+    const contentId = `${id}-content`;
+    const first = label.nextElementSibling;
+    const content = document.createElement('div');
+
+    label.id = id;
+    label.tabIndex = 0;
+    label.setAttribute('role', 'button');
+    label.setAttribute('aria-expanded', 'true');
+    label.setAttribute('aria-controls', contentId);
+    content.id = contentId;
+    content.className = 'section-content';
+    label.after(content);
+
+    let node = first;
+    while (node && !node.matches('.section-label, .signal-row, .doc-footer')) {
+      const next = node.nextElementSibling;
+      content.append(node);
+      node = next;
+    }
+
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.textContent = label.textContent;
+    button.setAttribute('aria-label', `Jump to ${label.textContent}`);
+    button.addEventListener('click', () => label.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+    nav.insertBefore(button, toggleAll);
+    navButtons.push(button);
+
+    const toggle = () => {
+      const willExpand = content.hidden;
+      content.hidden = !willExpand;
+      label.setAttribute('aria-expanded', String(willExpand));
+      updateToggleAll();
+    };
+    label.addEventListener('click', toggle);
+    label.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        toggle();
+      }
+    });
+  });
+
+  const updateToggleAll = () => {
+    const contents = [...document.querySelectorAll('.section-content')];
+    const allCollapsed = contents.every(content => content.hidden);
+    toggleAll.textContent = allCollapsed ? 'Expand all' : 'Collapse all';
+  };
+
+  toggleAll.addEventListener('click', () => {
+    const contents = [...document.querySelectorAll('.section-content')];
+    const collapse = contents.some(content => !content.hidden);
+    contents.forEach((content, index) => {
+      content.hidden = collapse;
+      labels[index].setAttribute('aria-expanded', String(!collapse));
+    });
+    updateToggleAll();
+  });
+
+  const updateProgress = () => {
+    const max = document.documentElement.scrollHeight - innerHeight;
+    progress.style.width = `${max > 0 ? Math.min(100, scrollY / max * 100) : 0}%`;
+  };
+  addEventListener('scroll', updateProgress, { passive: true });
+  addEventListener('resize', updateProgress);
+  updateProgress();
+
+  if ('IntersectionObserver' in window) {
+    const sectionObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const index = labels.indexOf(entry.target);
+        navButtons.forEach((button, i) => button.classList.toggle('active', i === index));
+        navButtons[index]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+      });
+    }, { rootMargin: '-15% 0px -75% 0px' });
+    labels.forEach(label => sectionObserver.observe(label));
+
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .08 });
+    document.querySelectorAll('.phase-card, .lead-engine, .vertical-section, .resource-section, .card, .ai-section, .signal-row').forEach(element => {
+      element.classList.add('reveal');
+      revealObserver.observe(element);
+    });
+  }
+
+  navButtons[0]?.classList.add('active');
+  updateToggleAll();
+})();
+</script>
+</body>
+</html>
